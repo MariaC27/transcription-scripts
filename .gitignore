@@ -1,3 +1,5 @@
 files
 generated_files
+*_files
+*_generated_files
 *.csv

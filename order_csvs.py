@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """
+CURRENTLY UNUSED - main script uses reorder_to_match.py instead
 Script to order two CSV files to match each other based on a common column.
 Outputs sorted versions of both files with the same row order.
 """
