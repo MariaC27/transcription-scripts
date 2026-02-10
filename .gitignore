@@ -3,3 +3,5 @@ generated_files
 *_files
 *_generated_files
 *.csv
+
+.DS_Store

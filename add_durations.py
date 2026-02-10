@@ -40,15 +40,16 @@ def add_durations(metadata_file, transcriptions_file, output_file):
         with open(output_file, 'w', newline='', encoding='utf-8') as outfile:
             reader = csv.DictReader(infile)
             
-            # Write header with duration_sec column added
-            fieldnames = ['Filename', 'duration_sec', 'Transcription']
+            # Write header with duration_sec column added (using 'transcript' to match metadata format)
+            fieldnames = ['Filename', 'duration_sec', 'transcript']
             writer = csv.DictWriter(outfile, fieldnames=fieldnames)
             writer.writeheader()
             
             # Process each row
             for row in reader:
                 filename = row['Filename']
-                transcription = row['Transcription']
+                # Handle both 'Transcription' and 'transcript' column names in input
+                transcription = row.get('Transcription') or row.get('transcript', '')
                 
                 # Look up duration from metadata
                 duration = duration_map.get(filename, '')
@@ -59,11 +60,11 @@ def add_durations(metadata_file, transcriptions_file, output_file):
                     rows_unmatched += 1
                     print(f"  Warning: No duration found for {filename}")
                 
-                # Write row with duration
+                # Write row with duration (using 'transcript' header)
                 writer.writerow({
                     'Filename': filename,
                     'duration_sec': duration,
-                    'Transcription': transcription
+                    'transcript': transcription
                 })
                 
                 rows_processed += 1
