@@ -1,14 +1,9 @@
 # Transcription Processing Scripts
 
-A collection of Python scripts to process, combine, and organize transcription CSV files
-
-### Steps
-
 - Combine multiple CSV files into one
 - Add duration metadata to transcriptions
 - Reorder CSV files to match a reference order
 
-<br>
 <br>
 
 ### Requirements
@@ -18,7 +13,6 @@ A collection of Python scripts to process, combine, and organize transcription C
 - **Input folder**: `{name}_files/` containing CSV files to process
 - **Metadata file**: `metadata_copy.csv` in the project root
 
-<br>
 <br>
 
 
